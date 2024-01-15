@@ -1,10 +1,11 @@
 import { Replace } from '@/helpers/Replace'
 import { randomUUID } from 'node:crypto'
+import { UserPassword } from './user-password'
 
 export interface UserProps {
   name: string
   email: string
-  password: string
+  password: UserPassword
   createdAt: Date
 }
 
@@ -40,11 +41,11 @@ export class User {
     this.props.email = email
   }
 
-  public get password(): string {
+  public get password(): UserPassword {
     return this.props.password
   }
 
-  public set password(password: string) {
+  public set password(password: UserPassword) {
     this.props.password = password
   }
 

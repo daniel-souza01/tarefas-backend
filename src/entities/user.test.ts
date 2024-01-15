@@ -1,12 +1,13 @@
 import { describe, expect, test } from 'vitest'
 import { User } from './user'
+import { UserPassword } from './user-password'
 
 describe('User entity', () => {
   test('should be able to create a user', () => {
     const mockedUser = {
       name: 'user',
       email: 'user@example.com',
-      password: '123456',
+      password: new UserPassword('12345678'),
     }
 
     const user = new User(mockedUser)
