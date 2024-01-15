@@ -1,7 +1,8 @@
-import http from 'node:http'
+import express from 'express'
+import { env } from './env'
 
-http
-  .createServer((req, res) => {
-    res.end('Node ts template')
-  })
-  .listen(3333, () => console.log('HTTP Server Running!'))
+const app = express()
+
+app.listen(env.PORT, () =>
+  console.log(`HTTP Server Running on port ${env.PORT}!`),
+)
