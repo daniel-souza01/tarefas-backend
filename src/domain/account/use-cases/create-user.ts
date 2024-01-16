@@ -1,8 +1,8 @@
-import { User } from '@/entities/user'
-import { UserPassword } from '@/entities/user-password'
-import { UsersRepository } from '@/repositories/users-repository'
+import { User } from '@/domain/account/entities/user'
+import { UserPassword } from '@/domain/account/entities/user-password'
+import { UsersRepository } from '@/domain/account/repositories/users-repository'
 import { UserAlreadyExistsError } from './errors/user-already-exists-error'
-import { HashGenerator } from '@/cryptography/hash-generator'
+import { HashGenerator } from '@/domain/account/cryptography/hash-generator'
 
 interface CreateUserUseCaseRequest {
   name: string

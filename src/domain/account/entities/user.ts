@@ -1,5 +1,5 @@
-import { Replace } from '@/helpers/Replace'
 import { randomUUID } from 'node:crypto'
+import { Replace } from '@/helpers/Replace'
 import { UserPassword } from './user-password'
 
 export interface UserProps {
