@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/infra/http/server.ts",
+    "dev": "tsx watch --env-file .env src/infra/http/server.ts",
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
     "test": "vitest run",
@@ -31,7 +31,6 @@
   "dependencies": {
     "@prisma/client": "5.8.1",
     "bcryptjs": "2.4.3",
-    "dotenv": "16.3.1",
     "express": "4.18.2",
     "zod": "3.22.4"
   }
