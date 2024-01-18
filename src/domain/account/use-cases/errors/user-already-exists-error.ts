@@ -1,5 +1,7 @@
-export class UserAlreadyExistsError extends Error {
+import { AppError } from '@/infra/errors/app-error'
+
+export class UserAlreadyExistsError extends AppError {
   constructor() {
-    super('E-mail already exists.')
+    super('E-mail already exists.', 409)
   }
 }
