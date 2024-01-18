@@ -1,20 +1,14 @@
 import { Request, Response } from 'express'
+import { container } from 'tsyringe'
 
 import { CreateUserUseCase } from '@/domain/account/use-cases/create-user'
-import { BcryptHasher } from '@/infra/cryptography/bcrypt-hasher'
-import { PrismaUsersRepository } from '@/infra/database/prisma/repositories/prisma-users-repository'
 import { UserPresenter } from '../../presenters/user-presenter'
 
 export class CreateAccountController {
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, email, password } = request.body
 
-    const bcryptHasher = new BcryptHasher()
-    const prismaUsersRepository = new PrismaUsersRepository()
-    const createUserUseCase = new CreateUserUseCase(
-      prismaUsersRepository,
-      bcryptHasher,
-    )
+    const createUserUseCase = container.resolve(CreateUserUseCase)
 
     const { user } = await createUserUseCase.execute({
       name,

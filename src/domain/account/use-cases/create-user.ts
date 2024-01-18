@@ -1,3 +1,5 @@
+import { inject, injectable } from 'tsyringe'
+
 import { User } from '@/domain/account/entities/user'
 import { UserPassword } from '@/domain/account/entities/user-password'
 import { UsersRepository } from '@/domain/account/repositories/users-repository'
@@ -14,9 +16,12 @@ interface CreateUserUseCaseResponse {
   user: User
 }
 
+@injectable()
 export class CreateUserUseCase {
   constructor(
+    @inject('UsersRepository')
     private usersRepository: UsersRepository,
+    @inject('HashGenerator')
     private hashGenerator: HashGenerator,
   ) {}
 
